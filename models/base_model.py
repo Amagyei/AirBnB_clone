@@ -3,7 +3,7 @@
 import uuid
 
 class Square:
-	"""represents a base class""""
+	"""represents a base class"""
 
 	def __init__(self, id, created_at, updated_at):
 		""" initialise the base class """

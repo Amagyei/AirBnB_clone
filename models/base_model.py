@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ define a class Square """
+import uuid
+
 class Square:
 	"""represents a base class""""
 

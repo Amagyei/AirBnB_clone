@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 """
-This file defines  the BaseModel class which will
+This file defines  the BaseModel class which will.
+
 serve as the base of ou model.
 """
 from uuid import uuid4
@@ -10,12 +11,11 @@ import models
 
 
 class BaseModel:
-    """Base class for all our classes"""
+    """Base class for all our classes."""
 
     def __init__(self, *args, **kwargs):
-        """ deserialize and serialize a class """
-
-        """initialize  if nothing is passed"""
+        """Deserialize and serialize a class."""
+        """Initialize  if nothing is passed."""
         if kwargs == {}:
             self.id = str(uuid4())
             self.created_at = datetime.utcnow()
@@ -23,7 +23,7 @@ class BaseModel:
             models.storage.new(self)
             return
 
-        """using Key words (deserialize)"""
+        """Using Key words (deserialize)."""
         if 'id' not in kwargs:
             kwargs['id'] = str(uuid4())
         self.id = kwargs['id']
@@ -41,7 +41,7 @@ class BaseModel:
                     '%Y-%m-%dT%H:%M:%S.%f')
 
     def __str__(self):
-        """overide str representation of self"""
+        """Overide str representation of self."""
         fmt = "[{}] ({}) {}"
         return fmt.format(
                 type(self).__name__,

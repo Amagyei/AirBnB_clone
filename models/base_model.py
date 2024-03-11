@@ -20,7 +20,6 @@ class BaseModel:
             self.id = str(uuid4())
             self.created_at = datetime.utcnow()
             self.updated_at = datetime.utcnow()
-            models.storage.new(self)
             return
 
         """Using Key words (deserialize)."""
@@ -41,6 +40,7 @@ class BaseModel:
                     '%Y-%m-%dT%H:%M:%S.%f')
 
     def __str__(self):
+        
         """Overide str representation of self."""
         fmt = "[{}] ({}) {}"
         return fmt.format(

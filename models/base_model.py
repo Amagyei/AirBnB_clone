@@ -48,3 +48,8 @@ class BaseModel:
                 self.id,
                 self.__dict__)
 
+
+    def save(self):
+        """updates the attribute aupdated_at"""
+        self.updated_at = datetime.utcnow()
+        return

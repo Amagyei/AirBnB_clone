@@ -2,7 +2,7 @@
 import json
 """ file storage file"""
 
-class FileStorage(self):
+class FileStorage:
     """ file stoage class linked to base model for storing files"""
     __file_path = "file.json"
     __objects = {}
@@ -30,4 +30,23 @@ class FileStorage(self):
             FileNotFoundError
             pass
 
+    @classmethod
+    def reload(cls):
+        cls.load()
+        
+    def all(cls):
+        """Returns all objects from __objects."""
+        return cls.__objects
+
+
+    def get(cls, cls_name, obj_id):
+        """Retrieves an object from __objects."""
+        key = f"{cls_name}.{obj_id}"
+        return cls.__objects.get(key)
+
+    @classmethod
+    def new(cls, obj):
+        """Adds a new object to __objects."""
+        key = f"{obj.__class__.__name__}.{obj.id}"
+        cls.__object[key] =  obj
 
